@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <title>Mahla Sharifi - Personal Academic Webpage</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+/* Navigation Bar */
+nav {
+    background-color: #333;
+    width: 300px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: width 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    display: block;
+    color: #f2f2f2;
+    padding: 15px 20px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #575757;
+}
+
+/* Highlighted "Experience" Menu Item */
+nav ul li.experience > a {
+    background-color: #444;
+    color: #fff;
+}
+
+/* Sub-menu always visible */
+nav ul li.experience ul {
+    display: block;
+    background-color: #444;
+}
+
+nav ul li ul li a {
+    padding: 10px 20px;
+    color: #f2f2f2;
+}
+
+nav ul li ul li a:hover {
+    background-color: #575757;
+}
+
+/* Last Update at the bottom of navbar */
+nav .last-update {
+    color: #f2f2f2;
+    padding: 15px 20px;
+    text-align: center;
+    background-color: #333;
+}
+
+/* Main Content */
+.main-content {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    margin-right: 320px;
+    transition: margin-right 0.3s ease;
+}
+
+/* Sections */
+section {
+    margin-bottom: 40px;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.container img {
+    max-width: 200px;
+    border-radius: 100px;
+    margin-left: 20px;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h1 {
+    margin-top: 0;
+}
+
+.about-text ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #f2f2f2;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.button:hover {
+    background-color: #575757;
+}
+
+h2 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.project, .work {
+    margin-bottom: 30px;
+}
+
+footer {
+    background-color: #333;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    nav {
+        width: 250px; /* Slightly narrower on medium screens */
+    }
+
+    .main-content {
+        margin-right: 270px; /* Adjusted for smaller nav */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .main-content {
+        margin-right: auto;
+        margin-left: 20px; /* Add left margin on smaller screens */
+        max-width: 100%;
+    }
+
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .container img {
+        margin: 20px 0 0 0;
+    }
+}
+
+
+/* Common Styles */
+section h2 {
+    font-size: 28px; /* Consistent font size for section headings */
+    margin-bottom: 20px;
+    color: #333;
+    text-align: left; /* Align section headings to the left for consistency */
+}
+
+/* Common Styles */
+section h2 {
+    font-size: 28px; /* Section headings */
+    margin-bottom: 20px;
+    color: #333;
+    text-align: left;
+}
+
+/* Research Section Styles */
+#research {
+    margin: 20px 0;
+}
+
+.research-item {
+    background-color: #f5f5f5; /* Light gray background */
+    border: 2px solid #ccc;    /* Light gray border */
+    border-radius: 10px;       /* Rounded corners */
+    padding: 30px;              /* Inner padding */
+    margin-bottom: 30px;        /* Space below each research item */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.research-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px; /* Space below the header */
+}
+
+.research-header h3 {
+    margin: 0;
+    font-size: 18px; /* Consistent font size with projects */
+    color: #000;     /* Black color for the title */
+    flex: 1;         /* Allows the title to take available space */
+}
+
+.research-date {
+    font-size: 14px; /* Smaller font size for dates */
+    color: #333;     /* Dark gray color for text */
+    background-color: #e0e0e0; /* Light gray background */
+    border: 1px solid #ccc;     /* Light gray border */
+    padding: 5px 10px;          /* Inner padding */
+    border-radius: 5px;         /* Rounded corners */
+    font-weight: bold;          /* Bold text */
+    margin-left: 10px;          /* Space to the left of the date */
+    margin-top: 5px;            /* Space above on smaller screens */
+}
+
+.supervisors {
+    margin-top: 15px; /* Space above supervisors list */
+}
+
+.supervisors p {
+    font-weight: bold; /* Bold text for the label */
+    color: #333;       /* Dark gray color */
+    margin-bottom: 8px; /* Space below the label */
+}
+
+.supervisors ul {
+    list-style-type: disc; /* Disc bullets */
+    padding-left: 20px;    /* Indentation for bullets */
+    margin: 0;             /* Remove default margin */
+}
+
+.supervisors li {
+    margin-bottom: 10px; /* Space between supervisor items */
+    font-size: 16px;     /* Consistent font size */
+    color: #555;         /* Medium gray color for text */
+}
+
+.supervisors a {
+    color: var(--myblue); /* Use the custom blue color for links */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.supervisors a:hover {
+    text-decoration: underline; /* Underline on hover for better UX */
+}
+
+.research-details {
+    list-style-type: disc; /* Disc bullets for details */
+    padding-left: 20px;    /* Indentation for bullets */
+    color: #555;           /* Medium gray color for text */
+}
+
+.research-details li {
+    margin-bottom: 10px; /* Space between detail items */
+    line-height: 1.6;     /* Improved readability */
+}
+
+/* Ensure consistency with global hyperlink styles */
+a {
+    color: var(--myblue);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+ /* Honors Section */
+/* Honors Section */
+.honors-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.honors-list li {
+    margin-bottom: 30px;
+}
+
+.honor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.honor-header h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.honor-date {
+    font-size: 14px;
+    color: #333;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+
+/* Teaching Section Styles */
+#teaching {
+    margin: 20px 0;
+}
+
+.teaching-item {
+    margin-bottom: 30px;
+}
+
+.teaching-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.teaching-header h3 {
+    margin: 0;
+    font-size: 18px; /* Reduced font size */
+    color: #000;
+}
+
+.teaching-dates {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.teaching-date {
+    font-size: 14px;
+    color: #333;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.teaching-details {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.teaching-details li {
+    font-weight: normal;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 5px;
+}
+/* Define the custom color for hyperlinks */
+:root {
+    --myblue: #0066cc; /* Replace with your specific color code for myblue */
+}
+
+/* Define the custom color for hyperlinks */
+:root {
+    --myblue: #0066cc; /* Replace with your specific color code for myblue */
+}
+
+/* Global Styles */
+section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: left;
+}
+
+/* Global hyperlink styles */
+a {
+    color: var(--myblue);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Courses Section Styles */
+#courses {
+    margin: 20px 0;
+}
+
+#courses h2, #courses h3 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.courses-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.courses-column {
+    flex: 1;
+    min-width: 250px;
+}
+
+.courses-column ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.courses-column li {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.courses-list {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.courses-list li {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.courses-list a {
+    color: var(--myblue);
+    text-decoration: none;
+}
+
+.courses-list a:hover {
+    text-decoration: underline;
+}
+
+#about {
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.about-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+/* Text Content */
+.about-text {
+    flex: 1;
+    max-width: 60%;
+}
+
+.about-photo {
+    max-width: 35%;
+    text-align: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.about-photo img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 100px;
+    margin-top: 0;
+}
+
+/* Social Media Icons Centered */
+.social-icons {
+    text-align: center;
+    margin-bottom: 30px;
+    width: 100%;
+    font-size: 24px; /* Increased size */
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.social-icons i {
+    font-size: 2em; /* Increased icon size */
+}
+
+/* Text Styles */
+.about-text h1 {
+    margin-top: 0;
+    font-size: 36px;
+    color: #333;
+}
+
+.about-text p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.about-text h3 {
+    margin-top: 30px;
+    font-size: 24px;
+    color: #333;
+}
+
+.about-text ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #555;
+}
+
+.about-text ul li {
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-text, .about-photo {
+        max-width: 100%;
+    }
+
+    .about-photo {
+        margin-top: 20px;
+        position: relative;
+    }
+
+    .about-photo img {
+        margin-top: 0;
+    }
+
+    .social-icons {
+        font-size: 20px;
+    }
+}
+/* Flexbox for aligning Research Interests and Languages side by side */
+.research-and-languages {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px; /* Optional: Adjust the space between the two sections */
+}
+
+/* Optional: Set max-width for each section */
+.research-interests, .languages {
+    flex: 1;
+}
+
+/* Adjust lists in the sections */
+.research-interests ul, .languages ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+/* Responsive Design: Stack them on smaller screens */
+@media screen and (max-width: 768px) {
+    .research-and-languages {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+/* Work Section Styles */
+#work {
+    margin: 20px 0;
+}
+
+#work h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: left;
+}
+
+.work-item {
+    margin-bottom: 30px;
+}
+
+.work-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+}
+
+.position-title {
+    margin: 0;
+    font-size: 18px;
+    color: #000;
+}
+
+.work-date {
+    font-size: 14px;
+    color: #333;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.company-info {
+    margin-top: 5px;
+}
+
+.company {
+    font-weight: bold;
+    color: #000;
+}
+
+.company a {
+    color: var(--myblue);
+    text-decoration: none;
+}
+
+.company a:hover {
+    text-decoration: underline;
+}
+
+.work-details {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.work-details li {
+    font-weight: normal;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 5px;
+}
+
+.work-details a {
+    color: var(--myblue);
+    text-decoration: none;
+}
+
+.work-details a:hover {
+    text-decoration: underline;
+}
+
+/* Apply myblue color to all hyperlinks */
+a {
+    color: var(--myblue);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+/* Skills Section Styles */
+#skills {
+    margin: 20px 0;
+}
+
+#skills h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.skill-category {
+    font-size: 16px;
+    color: #555;
+}
+
+.skill-category strong {
+    color: #000;
+}
+
+        /* Project Section Styles */
+        #projects {
+            margin: 20px 0;
+        }
+
+        .project-item {
+            background-color: #f5f5f5;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .project-header h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #000;
+            flex: 1;
+        }
+
+        .project-date {
+            font-size: 14px;
+            color: #333;
+            background-color: #e0e0e0;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-left: 10px;
+            margin-top: 5px;
+        }
+
+        .project-details {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .project-details li {
+            font-weight: normal;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 5px;
+        }
+
+        /* Apply myblue color to hyperlinks */
+        :root {
+            --myblue: #0066cc;
+        }
+
+        a {
+            color: var(--myblue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+/* Extracurricular Activities Section Styles */
+#extracurricular {
+    margin: 20px 0;
+}
+
+.extracurricular-item {
+    margin-bottom: 30px;
+}
+
+.extracurricular-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.extracurricular-header h3 {
+    margin: 0;
+    font-size: 18px; /* Adjusted font size */
+    color: #000;
+}
+
+.extracurricular-date {
+    font-size: 14px;
+    color: #333;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.extracurricular-details {
+    margin-top: 10px;
+    padding-left: 0; /* Remove default padding */
+}
+
+.extracurricular-details li {
+    font-weight: normal;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 5px;
+}
+
+/* Optional: Style for images within extracurricular details */
+.extracurricular-details img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .extracurricular-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .extracurricular-date {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li class="experience">
+                <a href="#experience">Experience</a>
+                <ul>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#teaching">Teaching</a></li>
+                    <li><a href="#work">Work</a></li>
+                </ul>
+            </li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#volunteer">Volunteer Activities</a></li>
+            <li><a href="#honors">Honors</a></li>
+            <li><a href="#courses">Related Courses</a></li>
+        </ul>
+    </nav>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mahla Sharifi - Personal Academic Webpage</title>
+        <!-- Include the updated CSS code here -->
+        <style>
+            /* [Insert the updated CSS code from above here] */
+        </style>
+    </head>
+    <body>
+    
+        <!-- Navigation Bar -->
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li class="experience">
+                    <a href="#experience">Experience</a>
+                    <ul>
+                        <li><a href="#research">Research</a></li>
+                        <li><a href="#teaching">Teaching</a></li>
+                        <li><a href="#work">Work</a></li>
+                    </ul>
+                </li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#volunteer">Volunteer Activities</a></li>
+                <li><a href="#honors">Honors</a></li>
+                <li><a href="#courses">Related Courses</a></li>
+            </ul>
+        </nav>
+    
+        <!-- Main Content -->
+        <div class="main-content">
+    
+ <!-- About Section -->
+<section id="about">
+    <div class="about-container">
+        <!-- Social Media Icons at the top middle -->
+
+        <!-- Text content on the left -->
+        <div class="about-text">
+            <h1>Mahla Sharifi</h1>
+            <p><em>B.Sc. Student in Computer Engineering</em></p>
+            <p>I am a dedicated Computer Engineering student at Amirkabir University of Technology, specializing in Software Engineering and Networks. My passion lies in exploring Serverless Computing, Cloud Computing, and Computer Networks. I am eager to contribute to innovative projects and expand my knowledge in these fields.</p>
+            
+            <div class="research-and-languages">
+                <!-- Research Interests Section -->
+                <div class="research-interests">
+                    <h3>Research Interests</h3>
+                    <ul>
+                        <li>Serverless Computing</li>
+                        <li>Cloud Computing</li>
+                        <li>Computer Networks</li>
+                        <li>Software Engineering</li>
+                    </ul>
+                </div>
+            
+                <!-- Languages Section -->
+                <div class="languages">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li><strong>Persian:</strong> Native proficiency</li>
+                        <li><strong>English:</strong> Professional working proficiency</li>
+                    </ul>
+                </div>
+            </div>
+            
+
+        </div>
+
+        <!-- Photo aligned to the top right -->
+        <div class="about-photo">
+            <img src="resources/profile.jpg" alt="Mahla Sharifi">
+        </div>
+    </div>
+    <div class="social-icons">
+        <a href="mailto:mahla.sharifi200@gmail.com" target="_blank">
+            <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://github.com/mahlashrifi" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/mahlasharifi" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+    </div>
+</section>
+
+
+       <!-- Education Section -->
+       <section id="education">
+        <h2>Education</h2>
+        <!-- Education Item 1 -->
+        <div class="education-item">
+
+            <h3><a href="https://aut.ac.ir/en">Amirkabir University of Technology (Tehran Polytechnic)</a></h3>
+            <p><strong>B.Sc. in Computer Engineering (Major in Software Engineering and Networks)</strong>, Tehran, Iran</p>
+            <p><em>September 2019 - October 2024 (Expected)</em></p>
+            <p>GPA: 18.60/20 (3.92/4), GPA in Major: 4/4</p>
+
+        </div>
+        <!-- Education Item 2 -->
+        <div class="education-item">
+            <h3><a href="https://en.wikipedia.org/wiki/National_Organization_for_Development_of_Exceptional_Talents">National Organization for Development of Exceptional Talents (NODET)</a></h3>
+            <p><strong>High School Diploma in Mathematics and Physics</strong></p>
+            <p><em>September 2015 - June 2019</em></p>
+            <p>GPA: 19.60/20 (4/4)</p>
+        </div>
+    </section>
+<!-- Research Section --> 
+<section id="research">
+    <h2>Research Experience</h2>
+
+    <!-- Research Item 1 -->
+    <div class="research-item">
+        <div class="research-header">
+            <h3>Enhancing Serverless Benchmark Suite (SeBS) Project</h3>
+            <span class="research-date">June 2024 - Present</span>
+        </div>
+        <div class="supervisors">
+            <p>Supervised by:</p>
+            <ul>
+                <li>
+                    <a href="https://mcopik.github.io/">Marcin Copik</a>, 
+                    <a href="https://ethz.ch/de.html">ETH Zürich</a>, Switzerland
+                </li>
+            </ul>
+        </div>
+        <ul class="research-details">
+            <li>Developing custom wrappers, base images, and automation scripts to enable automatic benchmarking of Java-based functions across different serverless platforms, including OpenWhisk, AWS Lambda, Google Cloud Functions, Azure Functions, and Knative.</li>
+            <li>Building storage wrappers for five different storage solutions—including Google Cloud Storage, AWS S3, Azure Blob Storage, and MinIO for OpenWhisk and Knative—ensuring compatibility of developed functions across different environments.</li>
+        </ul>
+    </div>
+
+    <!-- Research Item 2 -->
+    <div class="research-item">
+        <div class="research-header">
+            <h3>Performance Benchmarking of Serverless Platforms in Microservice Applications</h3>
+            <span class="research-date">September 2023 - Present</span>
+        </div>
+        <div class="supervisors">
+            <p>Supervised by:</p>
+            <ul>
+                <li>
+                    <a href="https://scholar.google.co.za/citations?user=uwozfWkAAAAJ&hl=en">Dr. Mahmoud Momtazpour</a>, Amirkabir University of Technology
+                </li>
+                <li>
+                    <a href="https://mcopik.github.io/">Marcin Copik</a>, 
+                    <a href="https://ethz.ch/de.html">ETH Zürich</a>, Switzerland
+                </li>
+            </ul>
+        </div>
+        <ul class="research-details">
+            <li>For my B.Sc. thesis, I started research in the serverless domain, involving article reviews and communication with contributors of various open-source projects, which led to collaboration on <a href="https://github.com/spcl/serverless-benchmarks">SeBS (Serverless Benchmark Suite)</a> from the <a href="https://spcl.inf.ethz.ch/">Scalable Parallel Computing Laboratory</a> at ETH Zürich.</li>
+            <li>Transformed each API of the <a href="https://github.com/DescartesResearch/TeaStore">TeaStore</a>, a microservice test application for cloud management, into Functions-as-a-Service (FaaS).</li>
+            <li>Integrated developed benchmarks into SeBS by designing new structures and conducting a comprehensive analysis of the results.</li>
+        </ul>
+    </div>
+</section>
+
+
+            <section id="teaching">
+                <h2>Teaching Experience</h2>
+            
+                <!-- Teaching Item 1 -->
+                <div class="teaching-item">
+                    <div class="teaching-header">
+                        <h3><strong>Software Testing</strong></h3>
+                        <span class="teaching-date">Fall 2024 (Present)</span>
+                    </div>
+                    <ul class="teaching-details">
+                        <li>Under the supervision of <a href="https://scholar.google.com/citations?user=7bpNAlAAAAAJ&hl=en">Dr. Faeze Gohari</a>.</li>
+                        <li>Develop and grade assignments.</li>
+                    </ul>
+                </div>
+            
+                <!-- Teaching Item 2 -->
+                <div class="teaching-item">
+                    <div class="teaching-header">
+                        <h3><strong>Computer Networks (Head Teaching Assistant)</strong></h3>
+                        <div class="teaching-dates">
+                            <span class="teaching-date">Fall 2023</span>
+                            <span class="teaching-date">Winter 2023</span>
+                            <span class="teaching-date">Winter 2022</span>
+                        </div>
+                    </div>
+                    <ul class="teaching-details">
+                        <li>Under the supervision of <a href="https://scholar.google.com/citations?hl=en&user=aIiC_6UAAAAJ&view_op=list_works&sortby=pubdate">Dr. Masoud Sabaei</a>.</li>
+                        <li>Created a question bank from 10 years of course questions for future teaching assistants.</li>
+                        <li>Conducted review sessions, developed, and graded assignments.</li>
+                    </ul>
+                </div>
+            
+                <!-- Teaching Item 3 -->
+                <div class="teaching-item">
+                    <div class="teaching-header">
+                        <h3><strong>Cloud Computing</strong></h3>
+                        <span class="teaching-date">Fall 2023</span>
+                    </div>
+                    <ul class="teaching-details">
+                        <li>Under the supervision of <a href="https://scholar.google.com/citations?user=Va7RTUsAAAAJ&hl=en">Dr. Ahmad Javadi</a>.</li>
+                        <li>Developed, received, and graded projects.</li>
+                    </ul>
+                </div>
+            
+                <!-- Teaching Item 4 -->
+                <div class="teaching-item">
+                    <div class="teaching-header">
+                        <h3><strong>Operating Systems</strong></h3>
+                        <span class="teaching-date">Fall 2023</span>
+                    </div>
+                    <ul class="teaching-details">
+                        <li>Under the supervision of <a href="https://scholar.google.com/citations?user=ZA9rRWAAAAAJ&hl=en">Dr. Hamid R. Zarandi</a>.</li>
+                        <li>Conducted review sessions, developed, and graded homework assignments.</li>
+                    </ul>
+                </div>
+            
+                <!-- Teaching Item 5 -->
+                <div class="teaching-item">
+                    <div class="teaching-header">
+                        <h3><strong>Discrete Mathematics</strong></h3>
+                        <span class="teaching-date">Fall 2023</span>
+                    </div>
+                    <ul class="teaching-details">
+                        <li>Under the supervision of <a href="https://scholar.google.com/citations?hl=en&user=8Hhu1Q8AAAAJ&view_op=list_works&sortby=pubdate">Dr. Mostafa H. Chehreghani</a>.</li>
+                        <li>Conducted teaching assistant sessions, developed, and graded homework assignments.</li>
+                    </ul>
+                </div>
+            
+                <!-- Teaching Item 6 -->
+                <div class="teaching-item">
+                    <div class="teaching-header">
+                        <h3><strong>Web Programming</strong></h3>
+                        <span class="teaching-date">Winter 2022</span>
+                    </div>
+                    <ul class="teaching-details">
+                        <li>Under the supervision of <a href="https://ceit.aut.ac.ir/~alizadeh/">Mr. Yaghoub Alizadeh</a>.</li>
+                        <li>Developed, received, and graded projects.</li>
+                    </ul>
+                </div>
+            
+                <!-- Teaching Item 7 -->
+                <div class="teaching-item">
+                    <div class="teaching-header">
+                        <h3><strong>Advanced Programming</strong></h3>
+                        <span class="teaching-date">Fall 2021</span>
+                    </div>
+                    <ul class="teaching-details">
+                        <li>Under the supervision of <a href="https://scholar.google.ca/citations?user=oISEZIUAAAAJ&hl=en">Dr. Amir Kalbasi</a>.</li>
+                        <li>Conducted teaching assistant sessions.</li>
+                    </ul>
+                </div>
+            
+                <!-- Teaching Item 8 -->
+                <div class="teaching-item">
+                    <div class="teaching-header">
+                        <h3><strong>Fundamentals of Programming</strong></h3>
+                        <span class="teaching-date">Fall 2020</span>
+                    </div>
+                    <ul class="teaching-details">
+                        <li>Under the supervision of <a href="https://scholar.google.com/citations?user=cdjKqjUAAAAJ&hl=en">Dr. Bahador Bakhshi</a>.</li>
+                        <li>Conducted teaching assistant sessions.</li>
+                        <li>Designed new questions for the laboratory agenda.</li>
+                        <li>Designed final project specifications, created exercises, received, and graded practical projects.</li>
+                    </ul>
+                </div>
+            </section>
+<!-- Courses Section -->
+<section id="courses">
+    <h2>Courses</h2>
+    
+    <h3>University</h3>
+    <div class="courses-container">
+        <div class="courses-column">
+            <ul>
+                <li>Software Testing (20/20)</li>
+                <li>Software Engineering II (20/20)</li>
+                <li>Software Engineering I (19.75/20)</li>
+                <li>Fundamentals of Computer Programming (19.7/20)</li>
+            </ul>
+        </div>
+        <div class="courses-column">
+            <ul>
+                <li>Architecture of Network Devices (Optional MSc course) (20/20)</li>
+                <li>Computer Networks (19.1/20)</li>
+                <li>Principles of Cloud Computing (17.66/20)</li>
+                <li>Operating Systems (19.81/20)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h3>Online</h3>
+    <ul class="courses-list">
+        <li><a href="https://coursera.org/share/c0aadee3626f396e7590d1d8c5764168" target="_blank">AWS Cloud Technical Essentials, Coursera</a></li>
+    </ul>
+</section>
+
+
+<!-- Skills Section -->
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-container">
+        <div class="skill-category">
+            <strong>Programming Languages:</strong>
+            <span>Java, C, Python | Familiarity: Bash (Scripting language)</span>
+        </div>
+        <div class="skill-category">
+            <strong>DevOps:</strong>
+            <span>Docker, Kubernetes, OpenWhisk | Familiarity: AWS</span>
+        </div>
+        <div class="skill-category">
+            <strong>Data Technologies:</strong>
+            <span>MySQL, Oracle DB, Elasticsearch, Hibernate (ORM for Java), Redis | Familiarity: Hadoop</span>
+        </div>
+        <div class="skill-category">
+            <strong>Operating Systems:</strong>
+            <span>Windows, Linux (Ubuntu)</span>
+        </div>
+        <div class="skill-category">
+            <strong>Other Technologies:</strong>
+            <span>Git, Jira, Jupyter Notebook, HTML, Angular | Familiarity: GitHub Actions (CI/CD)</span>
+        </div>
+    </div>
+</section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Notable Projects</h2>
+
+            <!-- Project Item 1 -->
+            <div class="project-item">
+                <div class="project-header">
+                    <h3><strong>Routing Table Manager using MultiBit Trie</strong></h3>
+                    <span class="project-date">Fall 2023</span>
+                </div>
+                <ul class="project-details">
+                    <li>Designed and developed a MultiBit Trie structure for high-performance IP address lookup.</li>
+                    <li>Implemented real-time updates and visualization, enabling instant feedback after adding each network prefix to the routing table.</li>
+                    <li>Link to the project: <a href="https://github.com/mahlashrifi/Multibit_Trie_Manager">GitHub Repository</a></li>
+                </ul>
+            </div>
+
+            <!-- Project Item 2 -->
+            <div class="project-item">
+                <div class="project-header">
+                    <h3><strong>APSARA</strong></h3>
+                    <span class="project-date">Fall 2023</span>
+                </div>
+                <ul class="project-details">
+                    <li>Implemented APSARA, a matching algorithm for high-bandwidth input-buffered switches.</li>
+                    <li>Analyzed the algorithm's results to observe real-world outcomes of theoretical concepts learned in the network devices course.</li>
+                    <li>Link to the project: <a href="https://github.com/mahlashrifi/APSARA">GitHub Repository</a></li>
+                </ul>
+            </div>
+
+            <!-- Project Item 3 -->
+            <div class="project-item">
+                <div class="project-header">
+                    <h3><strong>Cryptocurrency Price Tracker</strong></h3>
+                    <span class="project-date">Winter 2023</span>
+                </div>
+                <ul class="project-details">
+                    <li>Implemented a real-time crypto monitoring application that emails users when subscribed cryptocurrencies meet specified conditions.</li>
+                    <li>Covered various cloud computing concepts such as Docker, Kubernetes, Compose, CronJob, HPA, and StatefulSet.</li>
+                    <li>Link to the project: <a href="https://github.com/mahlashrifi/Cryptocurrency-Price-Tracker">GitHub Repository</a></li>
+                </ul>
+            </div>
+
+            <!-- Project Item 4 -->
+            <div class="project-item">
+                <div class="project-header">
+                    <h3><strong>MapReduce on Hadoop</strong></h3>
+                    <span class="project-date">Winter 2023</span>
+                </div>
+                <ul class="project-details">
+                    <li>Developed distributed MapReduce programs for analyzing U.S. election-related tweets on a Hadoop cluster.</li>
+                    <li>Link to the project: <a href="https://github.com/mahlashrifi/MapReduce_On_Hadoop">GitHub Repository</a></li>
+                </ul>
+            </div>
+
+            <!-- Project Item 5 -->
+            <div class="project-item">
+                <div class="project-header">
+                    <h3><strong>Enhanced xv6 OS</strong></h3>
+                    <span class="project-date">Winter 2022</span>
+                </div>
+                <ul class="project-details">
+                    <li>Customized the XV6 operating system by adding new system calls, implementing four new CPU scheduling algorithms, and adding thread support.</li>
+                    <li>Aimed to enhance kernel features and understand low-level OS functionalities.</li>
+                    <li>Link to the project: <a href="https://github.com/mahlashrifi/xv6-Enhanced">GitHub Repository</a></li>
+                </ul>
+            </div>
+
+            <!-- Project Item 6 -->
+            <div class="project-item">
+                <div class="project-header">
+                    <h3><strong>Ping Watcher</strong></h3>
+                    <span class="project-date">Fall 2022</span>
+                </div>
+                <ul class="project-details">
+                    <li>Implemented a RESTful app for monitoring the availability of specific URLs and sending email notifications when downtime is detected.</li>
+                    <li>Link to the project: <a href="https://github.com/mahlashrifi/URL_Monitoring">GitHub Repository</a></li>
+                </ul>
+            </div>
+
+            <!-- Project Item 7 -->
+            <div class="project-item">
+                <div class="project-header">
+                    <h3><strong>Information Retrieval System</strong></h3>
+                    <span class="project-date">Fall 2022</span>
+                </div>
+                <ul class="project-details">
+                    <li>Developed a Python search engine using TF-IDF and champion lists.</li>
+                    <li>Improved query accuracy through optimized pre-processing.</li>
+                    <li>Link to the project: <a href="https://github.com/mahlashrifi/PostCurl">GitHub Repository</a></li>
+                </ul>
+            </div>
+
+            <!-- Project Item 8 -->
+            <div class="project-item">
+                <div class="project-header">
+                    <h3><strong>Postman/cURL Clone</strong></h3>
+                    <span class="project-date">Winter 2019</span>
+                </div>
+                <ul class="project-details">
+                    <li>Developed an HTTP request manager with both console and graphical modes.</li>
+                    <li>Built using Java, Maven, and Swing.</li>
+                    <li>Link to the project: <a href="https://github.com/mahlashrifi/PostCurl">GitHub Repository</a></li>
+                </ul>
+            </div>
+
+        </section>            
+
+<!-- Work Section -->
+<section id="work">
+    <h2>Work Experience</h2>
+
+    <!-- Work Item 1 -->
+    <div class="work-item">
+        <div class="work-header">
+            <h3 class="position-title"><strong>Full-time Software Engineer (University CO-OP Program)</strong></h3>
+            <span class="work-date">August 2021 - February 2022</span>
+        </div>
+        <div class="company-info">
+            <span class="company"><a href="https://www.tosan.com/en/">Tosan (Banking and payment solutions provider)</a> - Tehran, Iran</span>
+        </div>
+        <ul class="work-details">
+            <li>Collaborated on Dockerizing the Java-based core banking system to enhance operational speed.</li>
+            <li>Designed and developed a solution to remotely and asynchronously change the IP addresses of ATMs.</li>
+        </ul>
+    </div>
+
+    <!-- Work Item 2 -->
+    <div class="work-item">
+        <div class="work-header">
+            <h3 class="position-title"><strong>Full Stack Developer Intern</strong></h3>
+            <span class="work-date">July 2020 - October 2020</span>
+        </div>
+        <div class="company-info">
+            <span class="company"><a href="https://www.linkedin.com/company/code-star/">CodeStar</a> - Remote</span>
+        </div>
+        <ul class="work-details">
+            <li>Selected based on score and code structure in a Java-based competitive algorithmic contest. (<a href="https://quera.org/contest/assignments/18017/scoreboard/">Scoreboard</a>)</li>
+            <li>Worked in an 8-member team to implement a system for the graph analysis of banking transactions. <a href="https://github.com/mahlashrifi/StarAcademy-Group1">[GitHub Link]</a></li>
+        </ul>
+    </div>
+</section>
+
+
+<!-- Extracurricular Activities Section -->
+<section id="extracurricular">
+    <h2>Extracurricular Activities</h2>
+
+    <!-- Activity Item 1 -->
+    <div class="extracurricular-item">
+        <div class="extracurricular-header">
+            <h3><strong>Vice President, <a href="https://ir.linkedin.com/school/students-scientific-chapter/?trk=public_profile_topcard-current-company" target="_blank">Students’ Scientific Chapter of computer engineering department </a></strong></h3>
+            <span class="extracurricular-date">2021 - 2022</span>
+        </div>
+        <ul class="extracurricular-details">
+            <li>Organizing and collaborating  many conferences and events to enrich students with opportunities in both industry and academia.</li>
+        </ul>
+    </div>
+
+    <!-- Activity Item 2 -->
+    <div class="extracurricular-item">
+        <div class="extracurricular-header">
+            <h3><strong>Co-Creator, VisionUp</a></strong></h3>
+            <span class="extracurricular-date">2021 - 2022</span>
+        </div>
+        <ul class="extracurricular-details">
+            <li>VisionUp was our solution to help our department students experience fewer hardships in accessing information during the pandemic. as fewer higher terms were accisble </li>
+            <li>VisionUp conducts friendly sessions, each featuring one guest from our department who is a professional in industry or academia, sharing their personal experiences with students. These sessions are always held in person. <a href="https://youtube.com/your-channel" target="_blank">YouTube Channel</a></li>
+        </ul>
+    </div>
+
+    <!-- Activity Item 3 -->
+    <div class="extracurricular-item">
+        <div class="extracurricular-header">
+            <h3><strong>Scientific Head, 2nd AUT GameCraft</strong></h3>
+            <span class="extracurricular-date">2022</span>
+        </div>
+        <ul class="extracurricular-details">
+            <li>Managed 8-member team responsesponsible for organizing 20 online conference, 4 in-person workshops with more than 20 instructors, in game industry, as well as a competition (game jam) </li>
+            <li>The evet  attracted totally over 1000 participants.</li>
+        </ul>
+    </div>
+
+    <!-- Activity Item 4 -->
+    <div class="extracurricular-item">
+        <div class="extracurricular-header">
+            <h3><strong>Chief Organizer, 21st Amirkabir Programming Contest League (ACPC)</strong></h3>
+            <span class="extracurricular-date">2021</span>
+        </div>
+        <ul class="extracurricular-details">
+            <li>ACPC is the primary competition for team selection to the regional ICPC at Amirkabir University and several other universities in Iran.</li>
+            <li>Experienced 4-month enjoable hard-working for managing  15 people of different teams including sponsership, tecnical, excutive, marketing, graphic.</li>
+            <!-- <li>the works of event was for registration of teams , check their validity by hand (as banking payment of site was not completed), solving their problems, communication with sponsers and judge team, supplying infrastructure like servers and their backups and dom-judge system, packing gifts of winners and sending those packs to different cities of country . </li> -->
+            <li>Our hard-work lead to participating of 650 participant in the event. which was a record during these 21 years. </li>
+        </ul>
+    </div>
+
+    <!-- Activity Item 5 -->
+    <!-- <div class="extracurricular-item">
+        <div class="extracurricular-header">
+            <h3><strong>Scientific Team Member, 3rd Amirkabir Artificial Intelligence Student Summit (AAISS)</strong></h3>
+            <span class="extracurricular-date">2021</span>
+        </div>
+        <ul class="extracurricular-details">
+            <li>Reviewed abstracts of recent AI research to identify suitable candidates and moderated sessions during the summit.</li>
+        </ul>
+    </div> -->
+</section>
+
+
+<section id="honors">
+    <h2>Honors and Awards</h2>
+    <ul class="honors-list">
+        <li>
+            <strong>Ranked in the top 10% of the class of the Bachelor program and announced as an outstanding student.</strong>
+            <span class="honor-date">2019 - 2024</span>
+        </li>
+        <li>
+            <strong>Elected as a member of the <a href="https://ir.linkedin.com/school/students-scientific-chapter/?trk=public_profile_topcard-current-company">Students’ Scientific Chapter</a> by direct vote of students.</strong>
+            <span class="honor-date">2021 - 2022</span>
+        </li>
+        <li>
+            <strong>Ranked in the top 0.2% of 160,000+ in the national university entrance exam for a B.Sc. in Mathematics and Physics.</strong>
+            <span class="honor-date">2019</span>
+        </li>
+    </ul>
+</section>
+
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Mahla Sharifi</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
